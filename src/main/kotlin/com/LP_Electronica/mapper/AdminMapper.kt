@@ -1,6 +1,7 @@
 package com.LP_Electronica.mapper
 
 import com.LP_Electronica.dto.AdminDTO
+import com.LP_Electronica.dto.AdminRegRequestDTO
 import com.LP_Electronica.entities.Admin
 
 
@@ -12,6 +13,15 @@ public object AdminMapper {
             name = name,
             lastName = lastName,
             email = email
+        )
+    }
+
+    fun Admin.regToDTO(): AdminRegRequestDTO{
+        return AdminRegRequestDTO(
+            name = name,
+            lastName = lastName,
+            email = email,
+            password = password
         )
     }
 

@@ -1,6 +1,6 @@
 package com.LP_Electronica.dto
 
-class AdminDTO (
+data class AdminDTO (
     val id: Long?,
     val name: String,
     val lastName: String,

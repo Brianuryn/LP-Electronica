@@ -1,7 +1,7 @@
 package com.LP_Electronica.mapper
 
 import com.LP_Electronica.dto.CustomerDTO
-import com.LP_Electronica.dto.RegisterRequestDTO
+import com.LP_Electronica.dto.CustomerRegRequestDTO
 import com.LP_Electronica.entities.Customer
 
 object CustomerMapper {
@@ -17,8 +17,8 @@ object CustomerMapper {
         )
     }
 
-    fun Customer.registerToDTO(): RegisterRequestDTO{
-        return RegisterRequestDTO(
+    fun Customer.registerToDTO(): CustomerRegRequestDTO{
+        return CustomerRegRequestDTO(
             name = name,
             lastName = lastName,
             email = email,

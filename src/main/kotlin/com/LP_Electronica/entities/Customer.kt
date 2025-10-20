@@ -10,13 +10,24 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "customer")
-class Customer (
+class Customer(
     @Column(nullable = false)
-    var dni: Int = 0,
+    var dni: Int,
 
     @Column
     var phoneNumber: String? = null,
 
     @OneToMany(mappedBy = "customer", cascade = [CascadeType.REMOVE], fetch = FetchType.LAZY)
-    var orders: MutableList<Order> = mutableListOf()
-) : Users(role = Rol.CUSTOMER)
+    var orders: MutableList<Order> = mutableListOf(),
+
+    name: String,
+    lastName: String,
+    email: String,
+    password: String
+) : Users(
+    role = Rol.CUSTOMER,
+    name = name,
+    lastName = lastName,
+    email = email,
+    password = password
+)

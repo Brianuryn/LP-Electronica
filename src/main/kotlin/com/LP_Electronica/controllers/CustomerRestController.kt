@@ -1,6 +1,6 @@
 package com.LP_Electronica.controllers
 
-import com.LP_Electronica.dto.RegisterRequestDTO
+import com.LP_Electronica.dto.CustomerRegRequestDTO
 import com.LP_Electronica.services.CustomerService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -28,10 +28,9 @@ class CustomerRestController (
     /*fun getCustomers(): List<CustomerDTO> = customerService.getCustomers()*/
 
     @PostMapping
-    fun register(@RequestBody registerRequestDTO: RegisterRequestDTO): ResponseEntity<String> {
-        customerService.createCustomer(registerRequestDTO)
-
-        return ResponseEntity.ok("Usuario registrado correctamente")
+    fun register(@RequestBody customerRegRequestDTO: CustomerRegRequestDTO): ResponseEntity<Map<String, String>?> {
+        customerService.createCustomer(customerRegRequestDTO)
+        return ResponseEntity.ok(mapOf("message" to "Usuario registrado correctamente"))
     }
 
 }

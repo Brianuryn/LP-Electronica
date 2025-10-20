@@ -1,6 +1,6 @@
 package com.LP_Electronica.services
 
-import com.LP_Electronica.dto.RegisterRequestDTO
+import com.LP_Electronica.dto.CustomerRegRequestDTO
 import com.LP_Electronica.entities.Customer
 import com.LP_Electronica.mapper.CustomerMapper.toDTO
 import com.LP_Electronica.repository.CustomerRepository
@@ -15,15 +15,27 @@ class CustomerService(
 
     fun getCustomers() = customerRepository.findAll().map { it.toDTO() }
 
-    fun createCustomer(registerRequestDTO: RegisterRequestDTO){
+    /*fun createCustomer(customerRegRequestDTO: CustomerRegRequestDTO){
         val customer = Customer().apply {
-            dni = registerRequestDTO.dni
-            phoneNumber = registerRequestDTO.phoneNumber
-            name = registerRequestDTO.name
-            lastName = registerRequestDTO.lastName
-            email = registerRequestDTO.email
-            password = passwordEncoder.encode(registerRequestDTO.password)
+            dni = customerRegRequestDTO.dni
+            phoneNumber = customerRegRequestDTO.phoneNumber
+            name = customerRegRequestDTO.name
+            lastName = customerRegRequestDTO.lastName
+            email = customerRegRequestDTO.email
+            password = passwordEncoder.encode(customerRegRequestDTO.password)
         }
+        customerRepository.save(customer)
+    }*/
+
+    fun createCustomer(dto: CustomerRegRequestDTO) {
+        val customer = Customer(
+            dni = dto.dni,
+            phoneNumber = dto.phoneNumber,
+            name = dto.name,
+            lastName = dto.lastName,
+            email = dto.email,
+            password = passwordEncoder.encode(dto.password)
+        )
         customerRepository.save(customer)
     }
 
