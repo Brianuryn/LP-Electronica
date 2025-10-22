@@ -37,13 +37,6 @@ class ItemRestController (
     }
 
     //@PreAuthorize("hasRole('ADMIN')")
-    /*@PostMapping
-    fun register(@RequestBody addItemDTO: AddItemDTO): ResponseEntity<Any> {
-        itemService.createItem(addItemDTO)
-        return ResponseEntity.ok(mapOf("message" to "Producto añadido correctamente"))
-    }*/
-
-    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     fun editItem(@RequestBody addItemDTO: AddItemDTO, @PathVariable id: Long): ResponseEntity<Map<String, String>?> {
         return if (itemService.editItem(addItemDTO,id)){
@@ -62,8 +55,5 @@ class ItemRestController (
             ResponseEntity.ok(mapOf("message" to "Producto no encontrado"))
         }
     }
-
-
-
 
 }

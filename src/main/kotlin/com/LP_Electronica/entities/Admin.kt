@@ -6,5 +6,17 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "admin")
-class Admin : Users(role = Rol.ADMIN){
-}
+class Admin(
+
+    name: String,
+    lastName: String,
+    email: String,
+    password: String
+
+) : Users(
+    role = Rol.ADMIN,
+    name = name,
+    lastName = lastName,
+    email = email,
+    password = password
+)

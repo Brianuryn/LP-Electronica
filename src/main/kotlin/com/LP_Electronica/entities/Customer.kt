@@ -24,6 +24,7 @@ class Customer(
     lastName: String,
     email: String,
     password: String
+
 ) : Users(
     role = Rol.CUSTOMER,
     name = name,

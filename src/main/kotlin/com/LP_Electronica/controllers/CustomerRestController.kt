@@ -25,8 +25,6 @@ class CustomerRestController (
         }
     }
 
-    /*fun getCustomers(): List<CustomerDTO> = customerService.getCustomers()*/
-
     @PostMapping
     fun register(@RequestBody customerRegRequestDTO: CustomerRegRequestDTO): ResponseEntity<Map<String, String>?> {
         customerService.createCustomer(customerRegRequestDTO)

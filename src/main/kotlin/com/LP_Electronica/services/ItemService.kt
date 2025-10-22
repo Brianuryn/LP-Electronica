@@ -38,17 +38,6 @@ class ItemService(
         return false
     }
 
-
-    /*fun delItem(id: Long): Boolean {
-        return try {
-            itemRepository.deleteById(id)
-            true
-        } catch (ex: EmptyResultDataAccessException) {
-            false
-        }
-    }
-*/
-
     fun delItem(id: Long): Boolean{
         if (itemRepository.existsById(id)) {
             itemRepository.deleteById(id)

@@ -15,18 +15,6 @@ class CustomerService(
 
     fun getCustomers() = customerRepository.findAll().map { it.toDTO() }
 
-    /*fun createCustomer(customerRegRequestDTO: CustomerRegRequestDTO){
-        val customer = Customer().apply {
-            dni = customerRegRequestDTO.dni
-            phoneNumber = customerRegRequestDTO.phoneNumber
-            name = customerRegRequestDTO.name
-            lastName = customerRegRequestDTO.lastName
-            email = customerRegRequestDTO.email
-            password = passwordEncoder.encode(customerRegRequestDTO.password)
-        }
-        customerRepository.save(customer)
-    }*/
-
     fun createCustomer(dto: CustomerRegRequestDTO) {
         val customer = Customer(
             dni = dto.dni,
